@@ -1,0 +1,48 @@
+---
+version: "3"
+services:
+  ttrss_db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_DB: ttrss
+      POSTGRES_PASSWORD: ttrss
+      POSTGRES_USER: ttrss
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: always
+
+  ttrss_web:
+    image: nginx:alpine
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - ttrss_php
+    volumes:
+      - web-data:/var/www/html:ro
+      - ./site.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      default:
+
+  ttrss_php:
+    image: aheilde/ttrss
+    environment:
+      DB_TYPE: pgsql
+      DB_HOST: ttrss_db
+      DB_USER: ttrss
+      DB_NAME: ttrss
+      DB_PASS: ttrss
+      DB_PORT: 5432
+      SELF_URL_PATH: http://localhost:8080/
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    depends_on:
+      - ttrss_db
+    volumes:
+      - web-data:/var/www/html
+
+volumes:
+  db-data:
+  web-data:

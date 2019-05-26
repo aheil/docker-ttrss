@@ -1,6 +1,11 @@
 # docker-ttrss
 
-https://img.shields.io/docker/cloud/build/aheilde/ttrss.svg
+![Docker build status](https://img.shields.io/docker/cloud/build/aheilde/ttrss.svg) 
+![Docker pulls](https://img.shields.io/docker/pulls/_/ubuntu.svg) 
+
+
+
+
 
 ## Docker Hub Repository 
 

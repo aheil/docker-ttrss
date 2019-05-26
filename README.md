@@ -1,7 +1,7 @@
 # docker-ttrss
 
-![Docker build status](https://img.shields.io/docker/cloud/build/aheilde/ttrss.svg) 
-![Docker pulls](https://img.shields.io/docker/pulls/_/ubuntu.svg) 
+[![Docker build status](https://img.shields.io/docker/cloud/build/aheilde/ttrss.svg)](https://cloud.docker.com/repository/docker/aheilde/ttrss/builds)
+[![Docker pulls](https://img.shields.io/docker/pulls/_/ubuntu.svg)](https://hub.docker.com/r/aheilde/ttrss)
 
 
 ## This image is currently WIP - please refer to the issues before using this images.

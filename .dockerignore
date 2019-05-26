@@ -1,3 +1,4 @@
 .dockerignore
 docker-compose.yml
 site.conf
+.env

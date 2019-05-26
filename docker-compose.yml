@@ -25,7 +25,7 @@ services:
       default:
 
   ttrss_php:
-    image: aheilde/ttrss
+    image: ${IMAGE_NAME}
     environment:
       DB_TYPE: pgsql
       DB_HOST: ttrss_db
@@ -33,7 +33,7 @@ services:
       DB_NAME: ttrss
       DB_PASS: ttrss
       DB_PORT: 5432
-      SELF_URL_PATH: http://localhost:8080/
+      SELF_URL_PATH: ${SELF_URL_PATH}
     build:
       context: .
       dockerfile: ./Dockerfile

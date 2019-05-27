@@ -57,5 +57,11 @@ done
 # make sure database is initialized 
 database_init
 
+
+# configure PHP location 
+sed -i "s|\s*define('PHP_EXECUTABLE',.*|\tdefine('PHP_EXECUTABLE', '/usr/local/bin/php');|g" /var/www/html/config.php
+# start feed updater
+php /var/www/html/update.php --daemon --feeds &
+
 # redirect input variables 
 exec "$@"

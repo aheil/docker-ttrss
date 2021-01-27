@@ -46,3 +46,5 @@ services:
 volumes:
   db-data:
   web-data:
+dns:
+  - 8.8.8.8

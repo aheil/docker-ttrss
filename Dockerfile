@@ -1,6 +1,4 @@
-FROM php:7-fpm-alpine
-
-ARG TTRSS_VERSION="19.2"
+FROM php:7.2-fpm-alpine
 
 RUN apk add --no-cache --virtual .build-deps \
       autoconf \
@@ -51,7 +49,7 @@ RUN apk add --no-cache --virtual .build-deps \
     apk add --no-cache bash postgresql-client && \
     apk del .build-deps
 
-RUN wget -q https://git.tt-rss.org/fox/tt-rss/archive/${TTRSS_VERSION}.tar.gz -O - | tar xzf - -C /var/www/html --strip-components=1 && \
+RUN wget -q https://git.tt-rss.org/fox/tt-rss/archive/master.tar.gz -O - | tar xzf - -C /var/www/html --strip-components=1 && \
     chown -R www-data:www-data /var/www/html
 
 USER www-data

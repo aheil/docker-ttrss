@@ -12,6 +12,7 @@ services:
     restart: always
 
   ttrss_web:
+    dns: 8.8.8.8   
     image: nginx:alpine
     ports:
       - "8080:8080"
@@ -25,6 +26,7 @@ services:
       default:
 
   ttrss_php:
+    dns: 8.8.8.8  
     image: ${IMAGE_NAME}
     environment:
       DB_TYPE: pgsql
